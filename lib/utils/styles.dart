@@ -30,4 +30,5 @@ class MyStyles {
     fontSize: 14,
     fontWeight: FontWeight.w800,
   );
+  
 }

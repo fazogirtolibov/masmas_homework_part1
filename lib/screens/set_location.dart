@@ -4,8 +4,8 @@ import 'package:lesson_two/utils/colors.dart';
 import 'package:lesson_two/utils/images.dart';
 import 'package:lesson_two/utils/styles.dart';
 
-class PaymentMethodPage extends StatelessWidget {
-  const PaymentMethodPage({Key? key}) : super(key: key);
+class SetLocation extends StatelessWidget {
+  const SetLocation({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -30,8 +30,8 @@ class PaymentMethodPage extends StatelessWidget {
               Padding(
                   padding: EdgeInsets.only(left: 5),
                   child: Text(
-                    "Payment Method",
-                    style: MyStyles.robotoBold700.copyWith(fontSize: 25),
+                    "Upload Your Photo\nProfile",
+                    style: MyStyles.robotoBold700.copyWith(fontSize: 30),
                   )),
               const SizedBox(height: 20),
               Padding(
@@ -41,37 +41,57 @@ class PaymentMethodPage extends StatelessWidget {
                   style: MyStyles.robotoRegular400.copyWith(fontSize: 14),
                 ),
               ),
-              SizedBox(height: 24),
-              buildButton(MyImages.image_paypal),
-              SizedBox(height: 24),
-              buildButton(MyImages.image_visa),
-              SizedBox(height: 24),
-              buildButton(MyImages.image_payoneer),
+              SizedBox(height: 20),
+              Center(
+                child: Container(
+                  height: 150,
+                  width: 360,
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                  decoration: const BoxDecoration(
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey,
+                          offset: Offset(0, 0.4),
+                        ),
+                      ],
+                      borderRadius: BorderRadius.all(Radius.circular(22))),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          InkWell(
+                            child: SvgPicture.asset(MyImages.icon_pin),
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(left: 14),
+                            child: Text(
+                              "Your Location",
+                              style: MyStyles.robotoMedium500
+                                  .copyWith(fontSize: 17),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Container(
+                        padding: EdgeInsets.only(top: 27),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(15))),
+                            hintText: 'Set Location',
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
               buildNextButton()
             ],
           ),
-        ),
-      ),
-    );
-  }
-
-  Widget buildButton(String imageName) {
-    return Container(
-      height: 73,
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-      decoration: const BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey,
-              offset: Offset(0, 0.4),
-            ),
-          ],
-          borderRadius: BorderRadius.all(Radius.circular(20))),
-      child: Center(
-        child: Container(
-          height: 32,
-          child: Image.asset(imageName),
         ),
       ),
     );

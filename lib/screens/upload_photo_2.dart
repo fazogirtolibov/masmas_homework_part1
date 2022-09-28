@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:lesson_two/utils/colors.dart';
 import 'package:lesson_two/utils/images.dart';
 import 'package:lesson_two/utils/styles.dart';
 
-class PaymentMethodPage extends StatelessWidget {
-  const PaymentMethodPage({Key? key}) : super(key: key);
+class UploadPhotoSecond extends StatelessWidget {
+  const UploadPhotoSecond({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class PaymentMethodPage extends StatelessWidget {
             image: AssetImage(MyImages.image_bg),
             fit: BoxFit.cover,
           )),
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.all(20).r,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -26,27 +27,31 @@ class PaymentMethodPage extends StatelessWidget {
                 onTap: () {},
                 child: SvgPicture.asset(MyImages.icon_back),
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: 24.h),
               Padding(
-                  padding: EdgeInsets.only(left: 5),
+                  padding: EdgeInsets.only(left: 5).r,
                   child: Text(
-                    "Payment Method",
-                    style: MyStyles.robotoBold700.copyWith(fontSize: 25),
+                    "Upload Your Photo\nProfile",
+                    style: MyStyles.robotoBold700.copyWith(fontSize: 30.sp),
                   )),
-              const SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Padding(
                 padding: EdgeInsets.only(left: 5),
                 child: Text(
                   "This data will be displayed in your account\nprofile for security",
-                  style: MyStyles.robotoRegular400.copyWith(fontSize: 14),
+                  style: MyStyles.robotoRegular400.copyWith(fontSize: 14.sp),
                 ),
               ),
-              SizedBox(height: 24),
-              buildButton(MyImages.image_paypal),
-              SizedBox(height: 24),
-              buildButton(MyImages.image_visa),
-              SizedBox(height: 24),
-              buildButton(MyImages.image_payoneer),
+              SizedBox(height: 44.h),
+              Column(
+                children: [
+                  buildButton(MyImages.image_photo),
+                  InkWell(
+                    onTap: () {},
+                    child: SvgPicture.asset(MyImages.icon_close),
+                  ),
+                ],
+              ),
               buildNextButton()
             ],
           ),
@@ -56,22 +61,24 @@ class PaymentMethodPage extends StatelessWidget {
   }
 
   Widget buildButton(String imageName) {
-    return Container(
-      height: 73,
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-      decoration: const BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey,
-              offset: Offset(0, 0.4),
-            ),
-          ],
-          borderRadius: BorderRadius.all(Radius.circular(20))),
-      child: Center(
-        child: Container(
-          height: 32,
-          child: Image.asset(imageName),
+    return Center(
+      child: Container(
+        height: 260.h,
+        width: 250.w,
+        // padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 7),
+        decoration: const BoxDecoration(
+          color: Color(0xFFFEFEFE),
+        ),
+        child: Center(
+          child: Column(
+            children: [
+              Container(
+                height: 245.h,
+                width: 238.w,
+                child: Image.asset(imageName),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -84,12 +91,12 @@ class PaymentMethodPage extends StatelessWidget {
         children: [
           Center(
               child: Container(
-            height: 56,
-            width: 150,
-            decoration: const BoxDecoration(
+            height: 56.h,
+            width: 150.w,
+            decoration: BoxDecoration(
                 color: MyColors.C_53E88B,
                 borderRadius: BorderRadius.all(
-                  Radius.circular(15),
+                  Radius.circular(15.r),
                 ),
                 gradient: LinearGradient(
                   colors: [
@@ -102,12 +109,12 @@ class PaymentMethodPage extends StatelessWidget {
               "Next",
               style: MyStyles.robotoBold700.copyWith(
                 color: Colors.white,
-                fontSize: 16,
+                fontSize: 16.sp,
               ),
             )),
           )),
           SizedBox(
-            height: 24,
+            height: 24.h,
           )
         ],
       ),
